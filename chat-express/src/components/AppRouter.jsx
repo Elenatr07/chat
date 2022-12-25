@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { privateRoutes, publicRoutes } from '../routes';
 import { CHAT_ROUTE, LOGIN_ROUTE } from '../utilis/consts';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { Context } from '../index';
+import { useAuthState } from "react-firebase-hooks/auth"
 
 
 
 const AppRouter = () => {
-    const user = false
+    const { auth } = useContext(Context)
+    const user = useAuthState(auth)
+
+    console.log(user)
     //если пользователь авторизован true, если нет false
     //если авторизован попадает в privateRoutes, если нет то в publicRoutes
     //соответственно в switch меняется ...map, exact{true/false} и Redirect {CHAT_ROUTE} для true и {LOGIN_ROUTE} для false 
