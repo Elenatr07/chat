@@ -10,7 +10,7 @@ import { useAuthState } from "react-firebase-hooks/auth"
 
 const AppRouter = () => {
     const { auth } = useContext(Context)
-    const user = useAuthState(auth)
+    const [user] = useAuthState(auth)
 
     console.log(user)
     //если пользователь авторизован true, если нет false

@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
 import { LOGIN_ROUTE } from '../utilis/consts';
+import { Context } from '../index';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+
 
 const Navbar = () => {
-    const user = false //если пользователь залогинен то true, если нет false
+    const { auth } = useContext(Context)
+    const [user] = useAuthState(auth) //если пользователь залогинен то true, если нет false
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -16,7 +21,7 @@ const Navbar = () => {
 
                     </Typography>
                     {user ?
-                        <Button variant={'outlined'} color="inherit">Log out</Button>
+                        <Button onClick={() => auth.signOut()} variant={'outlined'} color="inherit">Log out</Button>
                         :
                         <NavLink to={LOGIN_ROUTE}>
                             <Button variant={'outlined'} color="inherit">Login</Button>
