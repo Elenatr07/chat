@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 import ReactDOM from 'react-dom';
 import App from './App';
 import { getFirestore } from 'firebase/firestore';
-import { getAuth } from "firebase/auth";
+import { getAuth } from "firebase/auth"
 
 
 // Import the functions you need from the SDKs you need
