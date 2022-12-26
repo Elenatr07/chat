@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { AppBar, Toolbar, Typography } from '@mui/material';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import { LOGIN_ROUTE } from '../utilis/consts';
 import { Context } from '../index';
