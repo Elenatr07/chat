@@ -1,16 +1,17 @@
-import { Box, Button, Container, Grid } from "@mui/material";
+import { Box, Button, Container, Grid } from "@material-ui/core";
 import React, { useContext } from "react";
 import { Context } from "../index";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import 'firebase/auth';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 
 const Login = () => {
     const { auth } = useContext(Context)
 
     const login = () => {
-        const provider = new GoogleAuthProvider()
-        const { user } = getAuth();
-        signInWithPopup(auth, provider);
-        console.log(user);
+        const provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider);
+
 
     }
     return (

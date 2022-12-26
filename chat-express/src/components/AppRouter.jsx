@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
-
+//import React, { useContext } from 'react';
+import React from 'react';
 import { privateRoutes, publicRoutes } from '../routes';
 import { CHAT_ROUTE, LOGIN_ROUTE } from '../utilis/consts';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { Context } from '../index';
 import { useAuthState } from "react-firebase-hooks/auth"
-
+import { useContext } from 'react';
 
 
 const AppRouter = () => {

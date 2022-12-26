@@ -1,46 +1,21 @@
-import React, { createContext } from "react";
+import React from 'react';
 import ReactDOM from 'react-dom';
+//import './index.css';
 import App from './App';
-import { getFirestore } from 'firebase/firestore';
-import { getAuth } from "firebase/auth"
+
+import * as serviceWorker from './serviceWorker';
 
 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDDLEemdOpfycese9ZZJ8azCo4zTj6i8k0",
-  authDomain: "chat-express-d3d7f.firebaseapp.com",
-  projectId: "chat-express-d3d7f",
-  storageBucket: "chat-express-d3d7f.appspot.com",
-  messagingSenderId: "264503715783",
-  appId: "1:264503715783:web:9f2c7bec41838414e71be2",
-  measurementId: "G-QDXV3BC0T5"
-};
-
-export const Context = createContext(null);
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const firestore = getFirestore(app);
-const auth = getAuth(app);
 
 ReactDOM.render(
-  <Context.Provider value={{
-    app,
-    auth,
-    firestore
-  }
+  <React.StrictMode>
 
-  }>
     <App />
-  </Context.Provider>,
+  </React.StrictMode>,
   document.getElementById('root')
-
 );
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
