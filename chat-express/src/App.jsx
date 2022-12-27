@@ -8,7 +8,7 @@ import 'firebase/analytics';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import { Container } from '@material-ui/core';
+import { Container, TextField } from '@material-ui/core';
 import { Grid, Box, Button } from '@material-ui/core';
 
 firebase.initializeApp({
@@ -33,6 +33,7 @@ function App() {
     return (
         <div className="App">
             <header>
+                <h3>My chat</h3>
 
                 <SignOut />
             </header>
@@ -58,13 +59,13 @@ function SignIn() {
                 style={{ height: window.innerHeight - 50 }}
                 alignItems={"center"}
                 justifyContent={"center"}>
-                <Grid style={{ width: 400, background: 'lightblue' }}
+                <Grid style={{ width: 400 }}
                     container
                     alignItems={"center"}
                     direction={"column"}
                 >
                     <Box p={5}>
-                        <Button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</Button>
+                        <Button Button variant="contained" color="primary" className="sign-in" onClick={signInWithGoogle}>Sign in with Google</Button>
                     </Box>
                 </Grid>
 
@@ -78,7 +79,7 @@ function SignIn() {
 
 function SignOut() {
     return auth.currentUser && (
-        <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+        <Button variant="contained" color="primary" className="sign-out" onClick={() => auth.signOut()}>Sign Out</Button>
     )
 }
 
@@ -120,9 +121,9 @@ function ChatRoom() {
 
         <form onSubmit={sendMessage}>
 
-            <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
+            <TextField className='textfield' id="outlined-basic" label="You message" variant="outlined" value={formValue} onChange={(e) => setFormValue(e.target.value)} />
 
-            <button type="submit" disabled={!formValue}>🕊️</button>
+            <Button variant="contained" color="primary" type="submit" > Send</Button>
 
         </form>
     </>)
