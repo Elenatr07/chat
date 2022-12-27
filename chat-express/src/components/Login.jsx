@@ -26,7 +26,7 @@ const Login = () => {
                     direction={"column"}
                 >
                     <Box p={5}>
-                        <Button onClick={login} variant={"outlined"}>Login with Google</Button>
+                        <Button onClick={login} variant="outlined" color="primary">Login with Google</Button>
                     </Box>
                 </Grid>
 
